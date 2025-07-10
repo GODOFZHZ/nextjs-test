@@ -6,7 +6,8 @@ export default function Page() {
   
   return (
     <div>
-      <h1>Hello, Next.js!</h1>
+      <h1>Hello, Next.js!{process.env.NEXT_RUNTIME}</h1>
+      {globalThis?.EdgeRuntime}
     </div>
   );
 }
