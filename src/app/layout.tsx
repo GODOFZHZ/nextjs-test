@@ -10,3 +10,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const config = { runtime: 'edge' }
