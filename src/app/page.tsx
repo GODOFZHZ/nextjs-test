@@ -9,7 +9,7 @@ export default async function Page(props) {
       <h1>Hello, Next.js!{process.env.NEXT_RUNTIME}</h1>
       <p>runtime:{JSON.stringify(props) }</p>
       {globalThis?.EdgeRuntime}123123
-      {data}
+      {JSON.stringify(data)}
     </div>
   );
 }
