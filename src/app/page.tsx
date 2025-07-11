@@ -12,6 +12,7 @@ async function fetchData() {
   console.log(process.env.NEXT_RUNTIME);
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
   const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {cache: 'force-cache'})
+  console.log(res)
   return res.json()
 }
 export const runtime = 'edge';
