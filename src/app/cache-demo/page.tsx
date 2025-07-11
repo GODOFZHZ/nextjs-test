@@ -1,3 +1,4 @@
+'use client'
 export default function CacheDemo() {
   const now = new Date().toISOString()
   
