@@ -11,7 +11,7 @@ export default async function Page(props) {
 async function fetchData() {
   console.log(process.env.NEXT_RUNTIME);
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
-  const res = await fetch('https://api.frankfurter.dev/v1/currencies', {cache: 'force-cache'})
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {cache: 'force-cache'})
   return res.json()
 }
 export const runtime = 'edge';
