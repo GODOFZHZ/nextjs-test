@@ -26,4 +26,4 @@ async function fetchData() {
 //   fetch('/')
 // } 
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
