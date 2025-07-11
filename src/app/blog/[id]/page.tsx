@@ -13,8 +13,7 @@ export default async function Page({
   params,
 }) {
   const { id } = await params
-  const post = await fetch(`https://api.vercel.app/blog/${id}`, {
-    cache: 'no-store', next: {
+  const post = await fetch(`https://api.vercel.app/blog/${id}`, {next: {
       revalidate: 60
     }
   }).then(
