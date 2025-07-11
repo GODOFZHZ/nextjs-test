@@ -1,6 +1,7 @@
 // export const revalidate = 60
 // export const dynamicParams = true // or false, to 404 on unknown paths
 // export const dynamic = 'force-dynamic';
+export const revalidate = 60
 export async function generateStaticParams() {
   const posts = await fetch('https://api.vercel.app/blog', { cache: 'no-store' }).then((res) =>
     res.json()
@@ -27,4 +28,3 @@ export default async function Page({
     </main>
   )
 }
-export const revalidate = 60
