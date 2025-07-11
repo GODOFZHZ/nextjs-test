@@ -1,17 +1,34 @@
-export default async function Page(props) {
-    const data = await fetchData();
-    return (
-        <div>
-            <h1>home</h1>
-            <h1>Hello, Next.js!{process.env.NEXT_RUNTIME}</h1>
-            {JSON.stringify(data)}
-        </div>
-    );
+export const revalidate = 60
+// We'll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn't been generated,
+// Next.js will server-render the page on-demand.
+export const dynamicParams = true // or false, to 404 on unknown paths
+ 
+export async function generateStaticParams() {
+  console.log(' posts');
+  const posts = await fetch('https://api.vercel.app/blog').then((res) =>
+    res.json()
+  )
+  console.log(posts, ' posts');
+  
+  return posts.map((post) => ({
+    id: String(post.id),
+  }))
 }
-async function fetchData() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', { cache: 'force-cache', next: { revalidate: 3600 } })
-    console.log(res.status)
-    return res.json()
+
+export default async function Page({
+  params,
+}) {
+  console.log(' posts222');
+  const { id } = await params
+  const post= await fetch(`https://api.vercel.app/blog/${id}`).then(
+    (res) => res.json()
+  )
+  return (
+    <main>
+        123123
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+    </main>
+  )
 }
-// export const runtime = 'edge';
-export const revalidate = 60;
