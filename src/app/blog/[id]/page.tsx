@@ -22,6 +22,7 @@ export default async function Page({
   )
   return (
     <main>
+      <h1>SSR</h1>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
     </main>
