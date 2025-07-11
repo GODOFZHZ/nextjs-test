@@ -1,13 +1,17 @@
 {
-  "headers": [
-    {
-      "source": "/blog/(.*)",
-      "headers": [
+    "headers": [
         {
-          "key": "x-vercel-stale-while-revalidate",
-          "value": "60"
+            "source": "/blog/(.*)",
+            "headers": [
+                {
+                    "key": "x-vercel-stale-while-revalidate",
+                    "value": "60"
+                },
+                {
+                    "key": "x-nextjs-stale-time",
+                    "value": "60"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
