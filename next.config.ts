@@ -37,7 +37,7 @@ const nextConfig: NextConfig = {
                  headers: [
                      {
                          key: 'Cache-Control',
-                         value: 'public, max-age=600', // 10分钟 HTTP 缓存
+                         value: 'public, max-age=0', // 10分钟 HTTP 缓存
                      },
                      {
                          key: 'X-Cache-Info',
