@@ -14,4 +14,4 @@ async function fetchData() {
   const res = await fetch('https://dog.ceo/api/breeds/image/random', {cache: 'no-store'})
   return res.json()
 }
-export const runtime = 'edge';
+// export const runtime = 'edge';
