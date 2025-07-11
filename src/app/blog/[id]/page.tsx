@@ -43,6 +43,9 @@ export default async function Page({
     <main>
       <h1>SSR</h1>
       <h1>{post.title}</h1>
+         <a href="/blog/2" style={{ marginRight: '10px', color: 'blue' }}>
+          去博客页面 2(客户端路由)
+        </a>
       <p>{post.content}</p>
       <small>页面缓存策略: 5分钟，后台重新验证1分钟</small>
     </main>
