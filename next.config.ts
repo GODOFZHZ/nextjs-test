@@ -6,11 +6,11 @@ const nextConfig: NextConfig = {
     /* 配置选项写在这里 */
      basePath: "", // 应用访问路径
      
-     // 临时启用 staleTimes 进行测试
+     // 博客网站优化的缓存策略
      experimental: {
          staleTimes: {
-             dynamic: 30, // 30秒过期，方便测试
-             static: 30,
+             dynamic: 0,  // 5分钟客户端路由缓存
+             static: 0,  // 30分钟静态页面缓存
          }
      },
      
@@ -106,12 +106,26 @@ const nextConfig: NextConfig = {
                  ],
              },
              {
-                 // 为首页设置缓存
+                 // 为首页设置缓存（与页面 revalidate 协调）
                  source: '/',
                  headers: [
                      {
                          key: 'Cache-Control',
                          value: 'public, max-age=600, stale-while-revalidate=300',
+                     },
+                 ],
+             },
+             {
+                 // 为 home 页面设置缓存
+                 source: '/home',
+                 headers: [
+                     {
+                         key: 'Cache-Control',
+                         value: 'public, max-age=600, stale-while-revalidate=300',
+                     },
+                     {
+                         key: 'X-Cache-Strategy',
+                         value: 'Blog-Optimized',
                      },
                  ],
              },
