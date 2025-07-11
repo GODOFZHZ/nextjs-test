@@ -18,3 +18,4 @@ async function fetchData() {
   return res.json()
 }
 export const runtime = 'edge';
+export const revalidate = 60;
