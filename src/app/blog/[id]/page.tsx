@@ -1,9 +1,7 @@
 export const revalidate = 60
 export const dynamicParams = true // or false, to 404 on unknown paths
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
-  console.log(123123);
-  
   const posts = await Promise.resolve([{id:1},{id:2},{id:3},{id:4}])
   return posts.map((post) => ({
     id: String(post.id),
