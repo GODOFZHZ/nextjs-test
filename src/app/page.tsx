@@ -11,7 +11,7 @@ export default async function Page(props) {
 async function fetchData() {
   console.log(process.env.NEXT_RUNTIME);
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
-  const res = await fetch('https://dog.ceo/api/breeds/image/random')
+  const res = await fetch('https://dog.ceo/api/breeds/image/random', {cache: 'no-store'})
   return res.json()
 }
 export const runtime = 'edge';
