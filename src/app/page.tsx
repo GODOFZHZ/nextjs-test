@@ -1,4 +1,3 @@
-'use server'
 export default async function Page(props) {
   const data = await fetchData();
   return (
