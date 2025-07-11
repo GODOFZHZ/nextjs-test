@@ -13,7 +13,7 @@ export default async function Page(props) {
 async function fetchData() {
   console.log(process.env.NEXT_RUNTIME);
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {cache: 'force-cache'})
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {cache: 'force-cache', next: { revalidate: 3600 }})
   console.log(res.status)
   return res.json()
 }
