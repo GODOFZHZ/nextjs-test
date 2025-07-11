@@ -92,6 +92,20 @@ const nextConfig: NextConfig = {
                  ],
              },
              {
+                 // 为后退按钮测试页面设置缓存
+                 source: '/back-button-test',
+                 headers: [
+                     {
+                         key: 'Cache-Control',
+                         value: 'public, max-age=300, stale-while-revalidate=60',
+                     },
+                     {
+                         key: 'X-Test-Type',
+                         value: 'Back-Button-Behavior',
+                     },
+                 ],
+             },
+             {
                  // 为首页设置缓存
                  source: '/',
                  headers: [
