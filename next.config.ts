@@ -6,11 +6,11 @@ const nextConfig: NextConfig = {
     /* 配置选项写在这里 */
      basePath: "", // 应用访问路径
      
-     // 设置全局重新验证时间
+     // 临时启用 staleTimes 进行测试
      experimental: {
          staleTimes: {
-             dynamic: 60, // 动态页面的 stale time (秒)
-             static: 60, // 静态页面的 stale time (秒)
+             dynamic: 30, // 30秒过期，方便测试
+             static: 30,
          }
      },
      
@@ -28,6 +28,66 @@ const nextConfig: NextConfig = {
                      {
                          key: 'X-Cache-Tag',
                          value: 'blog-page',
+                     },
+                 ],
+             },
+             {
+                 // 为缓存演示页面设置缓存
+                 source: '/cache-demo',
+                 headers: [
+                     {
+                         key: 'Cache-Control',
+                         value: 'public, max-age=600', // 10分钟 HTTP 缓存
+                     },
+                     {
+                         key: 'X-Cache-Info',
+                         value: 'HTTP-Cache-600s-StaleTime-30s',
+                     },
+                 ],
+             },
+             {
+                 // 为缓存流程演示页面设置缓存
+                 source: '/cache-flow',
+                 headers: [
+                     {
+                         key: 'Cache-Control',
+                         value: 'public, max-age=300, stale-while-revalidate=300',
+                     },
+                     {
+                         key: 'X-Cache-Type',
+                         value: 'Strong-Cache-300s-Then-Conditional-300s',
+                     },
+                 ],
+             },
+             {
+                 // 为网络演示页面设置缓存
+                 source: '/network-demo',
+                 headers: [
+                     {
+                         key: 'Cache-Control',
+                         value: 'public, max-age=600',
+                     },
+                     {
+                         key: 'X-Debug-Info',
+                         value: 'HTTP-Cache-600s-VS-StaleTime-30s',
+                     },
+                 ],
+             },
+             {
+                 // 为响应头检查器设置缓存
+                 source: '/header-inspector',
+                 headers: [
+                     {
+                         key: 'Cache-Control',
+                         value: 'public, max-age=300, stale-while-revalidate=300',
+                     },
+                     {
+                         key: 'X-Cache-Tag',
+                         value: 'header-test',
+                     },
+                     {
+                         key: 'X-Test-Info',
+                         value: 'Browser-Refresh-vs-HTTP-Cache',
                      },
                  ],
              },
