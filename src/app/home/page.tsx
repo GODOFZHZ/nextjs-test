@@ -1,6 +1,6 @@
 // 博客网站优化的缓存策略
 // export const revalidate = 1800  // 30分钟页面重新生成
-// export const runtime = 'edge';
+export const runtime = 'edge';
 export default async function Page() {
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
   // 博客列表数据：30分钟缓存
