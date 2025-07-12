@@ -4,15 +4,15 @@ export const runtime = 'edge';
 export default async function Page() {
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
   // 博客列表数据：30分钟缓存
-  const post = await fetch('https://api.vercel.app/blog', {
-    next: { revalidate: 1800 }
-  }).then(
-    (res) => res.json()
-  )
+  // const post = await fetch('https://api.vercel.app/blog', {
+  //   next: { revalidate: 1800 }
+  // }).then(
+  //   (res) => res.json()
+  // )
   return (
     <main>
       <h1>博客首页 - 优化缓存策略</h1>
-      {JSON.stringify(post)}
+      {/* {JSON.stringify(post)} */}
       <div style={{ marginTop: '20px', fontSize: '12px', color: '#666' }}>
         <p>📊 博客网站缓存配置:</p>
         <ul>
