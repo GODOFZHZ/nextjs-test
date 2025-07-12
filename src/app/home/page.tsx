@@ -2,6 +2,7 @@
 // export const revalidate = 1800  // 30分钟页面重新生成
 export const runtime = 'edge';
 export default async function Page() {
+  console.log(globalThis?.EdgeRuntime); // Vercel Edge);
   // 博客列表数据：30分钟缓存
   const post = await fetch('https://api.vercel.app/blog', {
     next: { revalidate: 1800 }

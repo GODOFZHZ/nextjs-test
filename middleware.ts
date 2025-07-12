@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
     // 首页：缓存 10 分钟
     response.headers.set(
       'Cache-Control',
-      'public, max-age=600, stale-while-revalidate=120'
+      'public, max-age=9000, stale-while-revalidate=120'
     )
   } else {
     // 其他页面：不缓存
