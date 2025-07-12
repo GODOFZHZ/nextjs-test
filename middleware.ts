@@ -4,6 +4,7 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   // 创建响应
   const response = NextResponse.next()
+  console.log(request.nextUrl.pathname, ' request.nextUrl.pathname');
   
   // 为不同的路径设置不同的缓存策略
   const pathname = request.nextUrl.pathname
