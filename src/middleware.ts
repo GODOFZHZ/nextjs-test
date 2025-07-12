@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     // 博客页面：缓存 5 分钟
     response.headers.set(
       'Cache-Control',
-      'public, max-age=300, stale-while-revalidate=60'
+      'public, max-age=100, stale-while-revalidate=60'
     )
   } else if (pathname.startsWith('/api/')) {
     // API 路由：缓存 1 分钟
