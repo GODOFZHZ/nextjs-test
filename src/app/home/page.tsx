@@ -3,9 +3,7 @@ import Client from "./components/client";
 export default async function Page() {
   console.log(globalThis?.EdgeRuntime); // Vercel Edge);
   // 博客列表数据：30分钟缓存
-  const post = await fetch('https://api.vercel.app/blog', {
-    cache: 'no-store',
-  }).then(
+  const post = await fetch('https://api.vercel.app/blog').then(
     (res) => res.json()
   )
   return (
