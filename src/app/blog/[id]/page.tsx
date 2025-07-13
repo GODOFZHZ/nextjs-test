@@ -13,11 +13,7 @@ export default async function Page({
 }) {
   const { id } = await params
   // 在 fetch 中明确设置 revalidate 时间
-  const post = await fetch(`https://api.vercel.app/blog/${id}`, {
-    next: {
-      revalidate: 60 // 60 秒后重新验证
-    }
-  }).then(
+  const post = await fetch(`https://api.vercel.app/blog/${id}`).then(
     (res) => res.json()
   )
   return (
